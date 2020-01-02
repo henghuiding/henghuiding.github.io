@@ -81,6 +81,18 @@ a:focus {
 	outline: none;
 }
 
+aa {
+	color: #F44597;
+}
+
+aa:hover {
+	color: #29F4F4;
+}
+
+aa:focus {
+	outline: none;
+}
+
 fieldset {
 	display: block;
 	border: none;
