@@ -81,15 +81,15 @@ a:focus {
 	outline: none;
 }
 
-b {
+d {
 	color: #F44597;
 }
 
-b:hover {
+d:hover {
 	color: #29F4F4;
 }
 
-b:focus {
+d:focus {
 	outline: none;
 }
 
