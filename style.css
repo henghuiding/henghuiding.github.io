@@ -157,12 +157,8 @@ h1 {
 
 h0 {
 	color: #444;
+	font-family: cursive;
 	font-size: 50px;
-	font-weight: normal;
-	text-decoration: none;
-	letter-spacing: -3px;
-	float: left;
-	border-bottom: 2px solid #083989;
 }
 
 h2 {
@@ -253,10 +249,10 @@ li ul {
 	color: #999;
 	float: left;
 	font-size: 20px;
-/* 	margin-left: 12px; */
+	margin-left: 12px;
 	margin-top: 24px;
-/* 	padding-left: 4px; */
-	letter-spacing: -3px;
+	padding-left: 4px;
+	letter-spacing: 0px;
 }
 
 #nav {
