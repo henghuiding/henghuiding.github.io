@@ -155,11 +155,11 @@ h1 {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-h0 {
+/* h0 {
 	color: #444;
 	font-family: cursive;
 	font-size: 50px;
-}
+} */
 
 h2 {
 	font-size: 28px;
@@ -235,15 +235,6 @@ li ul {
 	border-bottom: 2px solid #083989;
 }
 
-#header h1 {
-	color: #444;
-	font-size: 50px;
-	font-weight: normal;
-	text-decoration: none;
-	letter-spacing: -3px;
-	float: left;
-	border-bottom: 2px solid #083989;
-}
 
 #header h2 {
 	color: #999;
