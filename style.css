@@ -71,11 +71,15 @@ p {
 
 a {
 	color: #083989;
+	text-decoration: none;
 }
 
 a:hover {
 	color: #CD5C5C;
+	text-decoration:underline;
 }
+
+a:visited { text-decoration: none;color: green}
 
 a:focus {
 	outline: none;
