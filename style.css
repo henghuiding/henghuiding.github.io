@@ -229,6 +229,16 @@ li ul {
 	border-bottom: 2px solid #083989;
 }
 
+#header h1 {
+	color: #444;
+	font-size: 50px;
+	font-weight: normal;
+	text-decoration: none;
+	letter-spacing: -3px;
+	float: left;
+	border-bottom: 2px solid #083989;
+}
+
 #header h2 {
 	color: #999;
 	float: left;
