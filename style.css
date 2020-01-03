@@ -79,7 +79,7 @@ a:hover {
 	text-decoration:underline;
 }
 
-a:visited { text-decoration: none;color: green}
+a:visited { text-decoration: underline;color: #CD5C5C;}
 
 a:focus {
 	outline: none;
