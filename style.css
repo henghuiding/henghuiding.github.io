@@ -155,6 +155,16 @@ h1 {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+h0 {
+	color: #444;
+	font-size: 50px;
+	font-weight: normal;
+	text-decoration: none;
+	letter-spacing: -3px;
+	float: left;
+	border-bottom: 2px solid #083989;
+}
+
 h2 {
 	font-size: 28px;
 	font-family: Georgia, "Times New Roman", Times, serif;
@@ -243,10 +253,10 @@ li ul {
 	color: #999;
 	float: left;
 	font-size: 20px;
-	margin-left: 12px;
+/* 	margin-left: 12px; */
 	margin-top: 24px;
-	padding-left: 4px;
-	letter-spacing: 0;
+/* 	padding-left: 4px; */
+	letter-spacing: -3px;
 }
 
 #nav {
