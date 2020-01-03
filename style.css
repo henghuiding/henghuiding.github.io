@@ -76,10 +76,10 @@ a {
 
 a:hover {
 	color: #CD5C5C;
-	text-decoration:underline;
+	text-decoration:underline dotted;
 }
 
-a:visited { text-decoration: underline;color: #CD5C5C;}
+/* a:visited { text-decoration: underline;color: #CD5C5C;} */
 
 a:focus {
 	outline: none;
@@ -91,6 +91,7 @@ d {
 
 d:hover {
 	color: #F44597;
+	text-decoration: underline dotted;
 }
 
 d:focus {
@@ -233,7 +234,7 @@ li ul {
 	color: #444;
 	font-size: 50px;
 	font-weight: normal;
-	text-decoration: none;
+	text-decoration: underline dotted;
 	letter-spacing: -3px;
 	float: left;
 	border-bottom: 2px solid #083989;
