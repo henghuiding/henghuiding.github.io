@@ -231,7 +231,8 @@ li ul {
 }
 
 #header h1 a {
-	color: #444;
+	color: #000;
+	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 50px;
 	font-weight: normal;
 	text-decoration: none;
