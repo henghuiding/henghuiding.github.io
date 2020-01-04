@@ -230,7 +230,7 @@ li ul {
 	margin: 0 auto;
 }
 
-#header h1 {
+#header h1 a {
 	color: #444;
 	font-size: 50px;
 	font-weight: normal;
