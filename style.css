@@ -316,6 +316,10 @@ li ul {
 	margin-bottom: 10px;
 }
 
+.col-2 {
+	width: 20%;
+}
+
 .col-3 {
 	width: 30%;
 }
