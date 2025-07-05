@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="author" href="https://henghuiding.github.io/AnyI2V">
+  <title>AnyI2V: Animating Any Conditional Image with Motion Control</title>
+  <meta name="description" content="AnyI2V: Animating Any Conditional Image with Motion Control">
+  <meta name="keywords" content="AnyI2V; Animating Any Conditional Image with Motion Control; AnyI2V Framework; Video Generation; Conditional Image Animation; Motion Control; Henghui Ding; Fudan University; Computer Vision">
+  
+  <!-- Meta tags for social media banners, these should be filled in appropriately as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="AnyI2V: Animating Any Conditional Image with Motion Control">
+  <meta property="og:title" content="AnyI2V: Animating Any Conditional Image with Motion Control"/>
+  <meta property="og:description" content="AnyI2V: Animating Any Conditional Image with Motion Control"/>
+  <meta property="og:url" content="https://henghuiding.github.io/AnyI2V"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimensions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="AnyI2V: Animating Any Conditional Image with Motion Control">
+  <meta name="twitter:description" content="AnyI2V: Animating Any Conditional Image with Motion Control">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimensions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="AnyI2V; Animating Any Conditional Image with Motion Control; AnyI2V Framework; Video Generation; Conditional Image Animation; Motion Control; Henghui Ding; Fudan University; Computer Vision">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <meta name="google-site-verification" content="RHqlM-yRssUYgbykhtd0uguPnqkhTvwJw-aLE04B4KQ" />
+</head>
+<body>
+
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">AnyI2V: Animating Any Conditional Image with Motion Control</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://github.com/ZyLieee/" target="_blank">Ziye Li</a><sup>1</sup>,&nbsp;</span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=7QvWnzMAAAAJ&hl/">Hao Luo</a><sup>2,3</sup>,&nbsp;</span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=kLY6SUMAAAAJ&hl/" target="_blank">Xincheng Shuai</a><sup>1</sup>,&nbsp;</span>
+                <span class="author-block">
+                  <a href="https://henghuiding.com/" target="_blank">Henghui Ding</a><sup>1</sup>&nbsp;</span>
+                <span class="author-block">
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">
+                      <sup>1</sup>Fudan University&nbsp;&nbsp;&nbsp;&nbsp;
+                      <sup>2</sup>DAMO Academy, Alibaba group&nbsp;&nbsp;&nbsp;&nbsp;
+                      <sup>3</sup>Hupan Lab&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                <font color="#FF6403"><b>ICCV 2025</b></font></span>
+            </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                    <span class="link-block">
+                      <a href="https://github.com/henghuiding/AnyI2V" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
+                  </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2507.02857" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video width="100%" autoplay muted loop playsinline poster="AnyI2V/videos/poster.jpg">
+        <source src="AnyI2V/videos/teaser.mp4" type="video/mp4">
+      </video>
+            <div class="content has-text-centered">
+        <p style="text-align:justify; text-justify:inter-ideograph;width:100%">Figure 1. The first frame conditional control of our Training-Free architecture AnyI2V. (a) AnyI2V supports diverse types of conditional
+          inputs, including those that are difficult to obtain construct pairs for training, such as mesh and point cloud data. The trajectories serve as
+          input for motion control in subsequent frames. (b) AnyI2V can accept inputs with mixed conditional types, further increasing the flexibility
+          of the input. (c) By using LoRA or different text prompts, AnyI2V can achieve the editing effect of the original image.</p>
+      </div>
+      <br>
+
+
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p style="text-align:justify; text-justify:inter-ideograph;">
+            Recent advancements in video generation, particularly
+            in diffusion models, have driven notable progress in text-to-video (T2V) and image-to-video (I2V) synthesis. However, challenges remain in effectively integrating dynamic motion signals and flexible spatial constraints. Existing T2V methods typically rely on text prompts, which inherently lack precise control over the spatial layout of generated content.In contrast, I2V methods are limited by their dependence on real images, which restricts the editability of the synthesized content. Although some methods incorporate ControlNet to introduce image-based conditioning, they often lack explicit motion control and require computationally expensive training. To address these limitations, we propose AnyI2V, a training-free framework that animates any conditional images with user-defined motion trajectories. AnyI2V supports a broader range of modalities as the conditional image, including data types such as meshes and point clouds that are not supported by ControlNet, enabling more flexible and versatile video generation. Additionally, it supports mixed conditional inputs and enables style transfer and editing via LoRA and text prompts. Extensive experiments demonstrate that the proposed AnyI2V achieves superior performance and provides a new perspective in spatial- and motion-controlled video generation.
+    </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<section class="pipeline">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">1. Pipeline of AnyI2V</h2>
+      <h5 class="title is-6">⭐ The following figure presents the architecture of AnyI2V, which utilizes a T2V backbone to achieve the effect of I2V task but supports a wider modality.</h5>
+      
+      <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+        <img src="AnyI2V/images/pipeline.jpg" alt="Pipeline Image" style="width: 85%;">
+      </div>
+
+      <div class="content has-text-centered"></div>
+        <p style="text-align:justify; text-justify:inter-ideograph;width:100%;">Figure 1. Our pipeline begins by performing DDIM inversion on the conditional image. To do this, we remove the temporal module (i.e., temporal self-attention) from the 3D U-Net and then extract features from its spatial blocks at timestep <i>t<sub>α</sub></i>. Next, we optimize the latent representation by substituting the features from the first frame back into the U-Net. This optimization is constrained to a specific region by an auto-generated semantic mask and is only performed for timesteps <i>t'<sub>γ</sub></i> ≤ <i>t<sub>γ</sub></i>.</p>
+      </div>
+      <br>
+    </div>
+  </div>
+</section>
+
+
+<section class="comparison"style="margin-top: -5rem;"></section>
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">2. Comparison with Previous Methods</h2>
+      <h5 class="title is-6">⭐ The following figure presents the comparison with the previous training-based methods.</h2>
+      <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+        <video width="85%" autoplay muted loop playsinline poster="AnyI2V/videos/comparison.mp4">
+          <source src="AnyI2V/videos/comparison.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="content has-text-centered">
+        <p style="text-align:justify; text-justify:inter-ideograph;width:100%">Figure 2. Comparison between AnyI2V and previous methods, DragAnything, DragNUWA, and MOFA. ‘First Frame*’
+          indicates that the condition images for previous methods are generated using AnyI2V to ensure a more consistent and fair comparison.</p>
+      </div>
+      <br>
+    </div>
+  </div>
+</section>
+
+<section class="Different Modality"style="margin-top: -5rem;"></section>
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">3. Controlling Multiple Modalities</h2>
+      <h5 class="title is-6">⭐ AnyI2V support multiple categories of modalities, including the modality not support for ControlNet.</h5>
+      <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+        <video width="85%" autoplay muted loop playsinline poster="AnyI2V/videos/in the wild & mixed modalities.mp4">
+          <source src="AnyI2V/videos/in the wild & mixed modalities.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="content has-text-centered">
+        <p style="text-align:justify; text-justify:inter-ideograph;width:100%">Figure 3. This picture demonstrates AnyI2V’s ability to control diverse conditions. AnyI2V can not only handle modalities that ControlNet
+          does not support but also effectively control mixed modalities, which previously required additional training by other methods.</p>
+      </div>
+      <br>
+    </div>
+  </div>
+</section>
+
+</section>
+
+<section class="Camera Control" style="margin-bottom: -5rem;"></section>
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">4. Camera Control</h2>
+      <h5 class="title is-6">⭐ By forcing motion control on a static object (e.g., the house in the following picture), it achieves the effect of controlling camera motion.</h5>
+      <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+        <video width="85%" autoplay muted loop playsinline poster="AnyI2V/videos/camera control.mp4">
+          <source src="AnyI2V/videos/camera control.mp4" type="video/mp4">
+        </video>
+      </div>
+  
+      <div class="content has-text-centered">
+        <p style="text-align:justify; text-justify:inter-ideograph;width:100%">Figure 4. This Picture shows the camera control result by forcing dragging on a static object.
+          However, AnyI2V cannot support complex camera control, such as rotating the camera.</p>
+      </div>
+      <br>
+    </div>
+  </div>
+</section>
+
+
+<section class="Visual Editing" style="margin-top: -5rem;"></section>
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">5. Visual Editing</h2>
+      <h5 class="title is-6">⭐ The generated result of the first frame by AnyI2V is not strictly constrained by the structural condition, which means AnyI2V enables flexible structure control
+        even when the structure and prompt conflict.</h5>
+      <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+        <video width="85%" autoplay muted loop playsinline poster="AnyI2V\videos\different text prompts.mp4">
+          <source src="AnyI2V\videos\different text prompts.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="content has-text-centered">
+        <p style="text-align:justify; text-justify:inter-ideograph;width:100%">AnyI2V supports visual editing by modifying the prompt. Even when the structure and prompt conflict, it can still generate harmonious shapes and smooth motion.</p>
+      </div>
+      <br>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      Please consider to cite AnyI2V if it helps your research.
+      <pre><code>@inproceedings{AnyI2V,
+  title={{AnyI2V}: Animating Any Conditional Image with Motion Control Generation},
+  author={Li, Ziye and Luo, Hao and Shuai, Xincheng and Ding, Henghui},
+  booktitle={ICCV},
+  year={2025}
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+<a href="https://clustrmaps.com/site/1c6wf" title="Visit tracker" target="_blank"><img src="//www.clustrmaps.com/map_v2.png?d=B2JZ7pbW21MiHRQX3E6FhlVWFDYX-zEW_yMOZVtTfzs&cl=ffffff" height="1" width="1"/ style="display:block;margin-top:5px;margin-bottom:0px;margin-left:auto;text-align:right"></a>
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+
+            <center><font size=2>© Henghui Ding | Last updated: 01/07/2025</font></center>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
