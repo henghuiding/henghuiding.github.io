@@ -6,21 +6,21 @@
   <link rel="author" href="https://henghuiding.github.io/SynFMC">
   <title>SynFMC
   </title>
-  <meta name="description" content="Free-Form Motion Control: A Synthetic Video Generation Dataset">
+  <meta name="description" content="Free-Form Motion Control: Controlling the 6D Poses of Camera and Objects in Video Generation">
   <meta name="keywords"
     content="FMC; Xincheng Shuai; Henghui Ding; Fudan University; Motion Control; Camera Control; Video Generation; Dataset; Simulation">
 
   <meta name="description"
-    content="Free-Form Motion Control: A Synthetic Video Generation Dataset with Controllable Camera and Object Motions">
+    content="Free-Form Motion Control: Controlling the 6D Poses of Camera and Objects in Video Generation">
   <meta property="og:title"
-    content="Free-Form Motion Control: A Synthetic Video Generation Dataset with Controllable Camera and Object Motions" />
+    content="Free-Form Motion Control: Controlling the 6D Poses of Camera and Objects in Video Generation" />
   <meta property="og:description"
-    content="Free-Form Motion Control: A Synthetic Video Generation Dataset with Controllable Camera and Object Motions" />
+    content="Free-Form Motion Control: Controlling the 6D Poses of Camera and Objects in Video Generation" />
 
   <meta name="twitter:title"
-    content="Free-Form Motion Control: A Synthetic Video Generation Dataset with Controllable Camera and Object Motions">
+    content="Free-Form Motion Control: Controlling the 6D Poses of Camera and Objects in Video Generation">
   <meta name="twitter:description"
-    content="Free-Form Motion Control: A Synthetic Video Generation Dataset with Controllable Camera and Object Motions">
+    content="Free-Form Motion Control: Controlling the 6D Poses of Camera and Objects in Video Generation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -109,8 +109,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Free-Form Motion Control: A Synthetic Video Generation Dataset with
-              Controllable Camera and Object Motions
+            <h1 class="title is-1 publication-title">Free-Form Motion Control: Controlling the 6D Poses of Camera and Objects in Video Generation
             </h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
@@ -181,14 +180,8 @@
         <center><img src="static/DemoImages/teaser.svg" border="0" width="100%"></center>
 
         <div align="center">
-          <p style="text-align:justify; text-justify:inter-ideograph;width:100%">Figure 1. Generation pipeline of videos
-            in the proposed <b>Syn</b>thetic Dataset
-            for <b>F</b>ree-Form <b>M</b>otion <b>C</b>ontrol (<b>SynFMC</b>). The figure presents an example for
-            generating synthetic video with three objects:
-            (1) First, the HDRI environment map and objects matching the environment are selected as the assets.
-            (2) Then, the motion types of objects and camera are selected for trajectory generation.
-            (3) The center region shows the resulting 3D animation sequence used for rendering.
-            The rendered video and annotations are demonstrated in the last row.</p>
+          <p style="text-align:justify; text-justify:inter-ideograph;width:100%">Figure 1. The rule-based generation pipeline of videos in the proposed <b>Syn</b>thetic Dataset for <b>F</b>ree-Form <b>M</b>otion <b>C</b>ontrol (<b>SynFMC</b>). 
+            This example generates synthetic video with three objects: (1) The environment asset and it's matching object assets are selected as the scene elements. (2) The motion types of objects and camera are randomly selected for trajectory generation. (3) The center region shows the resulting 3D animation sequence used for rendering. The rendered video and annotations are demonstrated in the last row.</p>
         </div><br>
 
       </div>
@@ -201,25 +194,16 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p style="text-align:justify; text-justify:inter-ideograph;">
-              Controlling the movements of dynamic objects and the camera within generated videos is a meaningful yet
-              challenging task.
-              Due to the lack of datasets with comprehensive motion annotations, existing algorithms can not
-              simultaneously control the motions of both camera and objects,
-              resulting in limited controllability over generated contents. To address this issue and facilitate the
-              research in this field,
-              we introduce a <b>Syn</b>thetic Dataset for <b>F</b>ree-Form <b>M</b>otion
-              <b>C</b>ontrol (<b>SynFMC</b>). The proposed <b>SynFMC</b> dataset includes diverse
-              objects and environments and covers various motion patterns according to specific rules, simulating
-              common
-              and complex real-world scenarios. The complete 6D pose information facilitates models learning to
-              disentangle the motion effects from objects and the camera in a video. To validate the effectiveness and
-              generalization of <b>SynFMC</b>, we further propose a method, <b>F</b>ree-Form <b>M</b>otion
-              <b>C</b>ontrol (<b>FMC</b>).
-              <b>FMC</b> enables independent or simultaneous control of object and camera movements, producing
-              high-fidelity videos. Moreover, it is compatible with various personalized text-to-image (T2I) models
-              for
-              different content styles. Extensive experiments demonstrate that the proposed FMC outperforms previous
-              methods across multiple scenarios.
+              Controlling the movements of dynamic objects and the camera within generated videos is a meaningful yet challenging task. 
+              Due to the lack of datasets with comprehensive 6D pose annotations, existing text-to-video methods can not simultaneously control the motions 
+              of both camera and objects in 3D-aware manner, resulting in limited controllability over generated contents. 
+              To address this issue and facilitate the research in this field, we introduce a <b>Syn</b>thetic Dataset for <b>F</b>ree-Form <b>M</b>otion <b>C</b>ontrol (<b>SynFMC</b>). 
+              The proposed <b>SynFMC</b> dataset includes diverse object and environment categories and covers various motion patterns according to specific rules, 
+              simulating common and complex real-world scenarios. The complete 6D pose information facilitates models learning to disentangle the motion effects 
+              from objects and the camera in a video. To provide precise 3D-aware motion control, we further propose a method trained on <b>SynFMC</b>, 
+              <b>F</b>ree-Form <b>M</b>otion <b>C</b>ontrol (<b>FMC</b>). <b>FMC</b> can control the 6D poses of objects and camera independently 
+              or simultaneously, producing high-fidelity videos. Moreover, it is compatible with various personalized text-to-image (T2I) models 
+              for different content styles. Extensive experiments demonstrate that the proposed <b>FMC</b> outperforms previous methods across multiple scenarios. 
             </p>
           </div>
         </div>
@@ -231,7 +215,7 @@
     <div class="container is-max-desktop content">
       <h2 class="title">1. Visualization of SynFMC </h2>
       <h3 class="title">Environment Categories</h3>
-      <b> ⭐ The environments in SynFMC span five types: <i>ground</i>, <i>near ground</i>, <i>sky</i>, <i>water
+      <b> ⭐ The environments in <b>SynFMC</b> span five types: <i>ground</i>, <i>near ground</i>, <i>sky</i>, <i>water
           surface</i>, and <i>underwater</i>. </b>
           <br>
           <br>
@@ -270,8 +254,8 @@
 
 
       <h3 class="title">Scene Categories</h3>
-      <b> ⭐ SynFMC contains 26K videos divided into four groups: 6K <i>static single-object</i>, 6K <i>static
-          multi-object</i>, 8K <i>dynamic single-object</i>, and 6K <i>dynamic multi-object</i>. <i>Static</i> means
+      <b> ⭐ The scenes in <b>SynFMC</b> span four types: <i>static single-object</i>, <i>static
+          multi-object</i>, <i>dynamic single-object</i>, and <i>dynamic multi-object</i>. <i>Static</i> means
         fixed object locations in world space while the camera remains movable. </b>
         <br> <br>
 
@@ -334,16 +318,12 @@
         <center><img src="static/DemoImages/network.svg" border="0" width="100%"></center>
 
         <div align="center">
-          <p style="text-align:justify; text-justify:inter-ideograph;width:100%">Figure 2. The architecture of
-            <b>FMC</b>.
-            In the first stage, we randomly sample the images from synthetic videos and update the parameters from
-            injected <b>Domain Adapter</b>.
-            Next, the modules from Camera Motion Controller (<b>CMC</b>) are learned. It consists of two parts:
-            <b>Camera Encoder</b> and <b>Camera Adapter</b>,
-            where the Camera Adapter is introduced into the temporal modules. Finally, we train the <b>Object
-              Encoder</b> from Object Motion Controller (<b>OMC</b>).
-            It receives the object pose features, which are repeated in the corresponding object region.
-            We use Gaussian blur kernel centered at the centroid to prevent the need of precise masks.
+          <p style="text-align:justify; text-justify:inter-ideograph;width:100%">Figure 2. The architecture of <b>FMC</b>. 
+            In the first stage, we randomly sample the images from synthetic videos and update the parameters from injected <b>Domain LoRA</b>. 
+            Next, the modules from <b>CMC</b> are learned. It consists of two parts: <b>Camera Encoder</b> and <b>Camera Adapter</b>, 
+            where the <b>Camera Adapter</b> is introduced into the temporal modules. Finally, we train the <b>Object Encoder</b> 
+            from <b>OMC</b>. It receives the 6D object pose features, which are repeated in the corresponding object region. 
+            We use Gaussian blur kernel centered at the centroid to prevent the need of precise masks. 
             Then, the output is multiplied by the coarse masks to modulate the features in the main branch.
           </p>
         </div>
@@ -495,7 +475,7 @@
       <h2 class="title">BibTeX</h2>
       Please consider to cite SynFMC if it helps your research.
       <pre><code>@inproceedings{SynFMC,
-  title={{Free-Form Motion Control}: A Synthetic Video Generation Dataset with Controllable Camera and Object Motions},
+  title={{Free-Form Motion Control}: Controlling the 6D Poses of Camera and Objects in Video Generation},
   author={Shuai, Xincheng and Ding, Henghui and Qin, Zhenyuan and Luo, Hao and Ma, Xingjun and Tao, Dacheng},
   booktitle={ICCV},
   year={2025}
