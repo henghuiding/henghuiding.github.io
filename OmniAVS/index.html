@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="author" href="https://henghuiding.github.io/OmniAVS">
+  <title>OmniAVS</title>
+  <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <meta name="description" content="Towards Omnimodal Expressions and Reasoning in Referring Audio-Visual Segmentation">
+  <meta name="keywords"
+    content="OmniAVS; Kaining Ying; Henghui Ding; Fudan University; Audio-Visual; Segmentation; Reasoning; Dataset">
+
+  <meta name="description"
+    content="Towards Omnimodal Expressions and Reasoning in Referring Audio-Visual Segmentation">
+  <meta property="og:title"
+    content="Towards Omnimodal Expressions and Reasoning in Referring Audio-Visual Segmentation" />
+  <meta property="og:description"
+    content="Towards Omnimodal Expressions and Reasoning in Referring Audio-Visual Segmentation" />
+  <meta name="twitter:title"
+    content="Towards Omnimodal Expressions and Reasoning in Referring Audio-Visual Segmentation">
+  <meta name="twitter:description"
+    content="Towards Omnimodal Expressions and Reasoning in Referring Audio-Visual Segmentation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <!-- <link rel="icon" type="image/x-icon" href="static/favicon_io/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="static/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="static/favicon_io/favicon-16x16.png"> -->
+  <!-- <link rel="manifest" href="/site.webmanifest"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <meta name="google-site-verification" content="RHqlM-yRssUYgbykhtd0uguPnqkhTvwJw-aLE04B4KQ" />
+
+  <style>
+    body {
+      min-width: 420px;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .image-pairs-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      justify-content: center;
+
+    }
+
+
+    .pair {
+      display: flex;
+      flex-direction: column;
+
+      flex-shrink: 0;
+
+      width: 175px;
+
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .pair h5 {
+      margin: 0 0 5px 0;
+      font-size: 18px;
+      text-align: center;
+      color: #333;
+      white-space: pre-wrap;
+    }
+
+    .pair img {
+      width: 200px;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 420px) {
+      .image-pairs-container {
+        overflow-x: auto;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Towards Omnimodal Expressions and Reasoning in Referring Audio-Visual Segmentation
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><a target="_blank">Kaining Ying</a>,&nbsp;</span>
+              <span class="author-block"><a href="https://henghuiding.com/" target="_blank">Henghui Ding</a><sup>✉️</sup>,&nbsp;</span>
+              <span class="author-block"><a target="_blank">Guangquan Jie</a>,&nbsp;</span>
+              <span class="author-block"><a target="_blank">Yu-Gang Jiang</a></span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Fudan University, China
+            </div>
+
+             <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                <font color="#FF6403"><b>ICCV 2025, Honolulu, Hawai'i</b></font></span>
+            </div>
+            <div class="is-size-6 publication-authors">
+              <span class="author-block">
+                <sup>✉️</sup> Corresponding author
+              </span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/xxxx"  target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://github.com/FudanCVL/OmniAVS" class="external-link button is-normal is-rounded is-dark">
+                    <span>🔥Code</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://github.com/FudanCVL/OmniAVS"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span>🔥Dataset</span>
+                  </a>
+
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <center><img src="static/images/teaser.jpg" border="0" width="100%"></center>
+
+        <div align="center">
+          <p style="text-align:justify; text-justify:inter-ideograph;width:100%"><b>Figure 1</b>. Examples of the proposed benchmark Omnimodal Referring Audio-Visual Segmentation (OmniAVS) to show its nature and flexibility. OmniAVS introduces 3 key features: 1) It supports diverse multimodal referring expressions that flexibly combine text, speech, sound, and image for referring audio-visual segmentation; 2) It emphasizes understanding the content of audio rather than merely hearing them; 3) It incorporates complex reasoning and world knowledge in expressions, prompting models to provide explanations for their segmentation decisions. These characteristics make OmniAVS practical for real-world use and well-suited for developing omnimodal models with fine-grained perception.</p>
+        </div><br>
+
+      </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p style="text-align:justify; text-justify:inter-ideograph;">
+              Referring audio-visual segmentation (RAVS) has recently seen significant advancements, yet challenges remain in integrating multimodal information and deeply understanding and reasoning about audiovisual content. To extend the boundaries of RAVS and facilitate future research in this field, we propose Omnimodal Referring Audio-Visual Segmentation (OmniAVS), a new dataset containing 2,098 videos and 59,458 multimodal referring expressions. OmniAVS stands out with three key innovations: (1) 8 types of multimodal expressions that flexibly combine text, speech, sound, and visual cues; (2) an emphasis on understanding audio content beyond just detecting their presence; and (3) the inclusion of complex reasoning and world knowledge in expressions. Furthermore, we introduce Omnimodal Instructed Segmentation Assistant (OISA), to address the challenges of multimodal reasoning and fine-grained understanding of audiovisual content in OmniAVS. OISA uses MLLM to comprehend complex cues and perform reasoning-based segmentation. Extensive experiments show that OISA outperforms existing methods on OmniAVS and achieves competitive results on other related tasks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="OmniAVS-Visualization">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Dataset: OmniAVS</h2>
+      <h3 class="title">Dataset Statistics</h3>
+      <div style="overflow-x:auto; text-align:center;">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="font-size:0.95em; margin:0 auto;">
+          <thead>
+            <tr>
+              <th rowspan="2" style="vertical-align:middle;">Dataset</th>
+              <th rowspan="2" style="vertical-align:middle;">Venue</th>
+              <th colspan="2">Content</th>
+              <th colspan="3">Referring</th>
+              <th colspan="2">Reasoning</th>
+              <th colspan="6">Statistics</th>
+            </tr>
+            <tr>
+              <th>Video</th>
+              <th>Audio</th>
+              <th>Text</th>
+              <th>Audio</th>
+              <th>Image</th>
+              <th>Avail.</th>
+              <th>Expl.</th>
+              <th>Video</th>
+              <th>Frame</th>
+              <th>Object</th>
+              <th>Mask</th>
+              <th>Expr.</th>
+              <th>Expl.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>R-YouTubeVOS</td>
+              <td>ECCV'20</td>
+              <td>✓</td>
+              <td>✗</td>
+              <td>✓</td>
+              <td>✗</td>
+              <td>✗</td>
+              <td>✗</td>
+              <td>✗</td>
+              <td>3,978</td>
+              <td><b>116k</b></td>
+              <td>7,451</td>
+              <td>131k</td>
+              <td>15,009</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td>MeViS</td>
+              <td>ICCV'23</td>
+              <td>✓</td>
+              <td>✗</td>
+              <td>✓</td>
+              <td>✗</td>
+              <td>✗</td>
+              <td>✗</td>
+              <td>✗</td>
+              <td>2,006</td>
+              <td>44k</td>
+              <td><b>8,175</b></td>
+              <td>443k</td>
+              <td>28,570</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td>ReVOS</td>
+              <td>ECCV'24</td>
+              <td>✓</td>
+              <td>✗</td>
+              <td>✓</td>
+              <td>✗</td>
+              <td>✗</td>
+              <td>✓</td>
+              <td>✗</td>
+              <td>1,042</td>
+              <td>116k</td>
+              <td>5,535</td>
+              <td><b>469k</b></td>
+              <td>35,074</td>
+              <td>✗</td>
+            </tr>
+            <tr>
+              <td>Ref-AVS</td>
+              <td>ECCV'24</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✗</td>
+              <td>✗</td>
+              <td>✗</td>
+              <td>✗</td>
+              <td><b>4,002</b></td>
+              <td>40k</td>
+              <td>6,888</td>
+              <td>78k</td>
+              <td>20,261</td>
+              <td>✗</td>
+            </tr>
+            <tr">
+              <td><b>OmniAVS (ours)</b></td>
+              <td>ICCV'25</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>2,098</td>
+              <td>103k</td>
+              <td>5,135</td>
+              <td>206k</td>
+              <td><b>59,458</b></td>
+              <td><b>59,458</b></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="text-align:justify; font-size:0.85em; margin-top:0.5em;">
+          <b>Table 1:</b> Comparison of OmniAVS with existing releated segmentation datasets.
+          <b>Notes:</b> Avail. = Availability of reasoning, Expl. = Explanations, Expr. = Expressions.
+        </div>
+      </div>
+      <br>
+
+      <div class="container is-max-desktop content">
+        <p style="text-align:justify;">
+          Table 1 shows a statistical comparison between OmniAVS and related datasets. Refer-YouTubeVOS, MeViS, and ReVOS focus on silent videos without audio and provide only text expressions. While ReVOS further supports reasoning expression, it lacks explanations. Ref-AVS Bench includes audio-visual videos but supports only single-modality text expressions without reasoning or explanations. Compared to previous datasets, the proposed 
+          OmniAVS dataset offers multimodal content (audio-visual videos) and diverse expression modalities (text, speech, 
+          sound, image), supports reasoning with explanations, and allows for referring to arbitrary number of target objects.
+        </p>
+      </div>
+
+  <h3 class="title">Visualization</h3>
+  <div style="text-align:center; margin-bottom: 2em;">
+    <video width="95%" controls style="max-width:700px; border-radius: 0px; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">
+      <source src="static/images/visualizations.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div style="text-align:justify; font-size:0.95em; margin-top:0.5em;">
+      <b>Video 1:</b> Visualization of OmniAVS dataset and task.</b> Note: The video contains audio. Please wear headphones or turn on your speakers for the best experience.
+    </div>
+  </div>
+  </section>
+
+  <section class="section" id="OmniAVS-Methods">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Baseline Method: OISA</h2>
+      <div class="content has-text-justified">
+        <p style="text-align:justify;">
+          To address the challenges of the OmniAVS task, we propose a baseline method called <b>O</b>mnimodal <b>I</b>nteractive <b>S</b>egmentation <b>A</b>rchitecture (OISA). This approach is designed to handle the diverse expression modalities and reasoning requirements of our dataset.
+        </p>
+        
+        <div style="text-align:center; margin: 2em 0;">
+          <img src="static/images/model.jpg" alt="OISA Architecture" width="95%" style="max-width:700px; border-radius: 0px;">
+          <div style="font-size:0.95em; margin-top:0.5em;">
+            <b>Figure 2:</b> Overview of our baseline OISA architecture for the OmniAVS task.
+          </div>
+        </div>
+        
+        <p style="text-align:justify;">
+          OISA consists of two main components: a Multimodal Large Language Model (MLLM) for understanding and reasoning across different modalities, and a mask head for segmentation and tracking. The MLLM incorporates audio and vision encoders along with a language model, while the mask head utilizes ViT-Adapter, pixel decoder, and mask decoder components.
+          Our architecture processes both audio-visual content and omnimodal expressions (text, speech, sound, and images). A key innovation in OISA is our Audio-Visual Interleaving strategy, which synchronizes audio and video frames by dividing audio tokens into clips and interleaving them with vision tokens. This approach ensures proper alignment between audio and visual content without requiring additional parameters.
+          For segmentation, we employ a query propagation mechanism that updates the object representation frame-by-frame. This approach overcomes limitations of static representations when tracking objects with rapid or complex motion patterns. The model generates a specialized token representing the target object, which is then processed by the mask decoder to produce the final segmentation masks across video frames.
+          OISA is designed to handle the unique challenges of the OmniAVS task, including multimodal understanding, reasoning with explanations, and segmenting objects referred to through diverse expression modalities.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="OmniAVS-experiments">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Experiments</h2>
+      <h3 class="title">Benchmark Results</h3>
+      <div class="content has-text-justified">
+        <p style="text-align:justify;">
+        <p style="text-align:justify;">
+          We evaluate our OISA model on the OmniAVS dataset and compare it with several state-of-the-art methods. Table 2 presents the comprehensive results across all eight splits of our dataset.
+        </p>
+
+        <div style="text-align:center; margin: 2em 0;">
+          <table class="table is-bordered is-striped is-narrow is-hoverable" style="margin: 0 auto; max-width:700px;">
+
+            <thead>
+              <tr>
+                <th style="text-align: center;">Method</th>
+                <th style="text-align: center;">All</th>
+                <th style="text-align: center;">I</th>
+                <th style="text-align: center;">II</th>
+                <th style="text-align: center;">III</th>
+                <th style="text-align: center;">IV</th>
+                <th style="text-align: center;">V</th>
+                <th style="text-align: center;">VI</th>
+                <th style="text-align: center;">VII</th>
+                <th style="text-align: center;">VIII</th>
+                <th style="text-align: center;">METEOR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>LMPM</td>
+                <td style="text-align: center;">25.8</td>
+                <td style="text-align: center;">31.2</td>
+                <td style="text-align: center;">28.7</td>
+                <td style="text-align: center;">20.0</td>
+                <td style="text-align: center;">22.7</td>
+                <td style="text-align: center;">21.3</td>
+                <td style="text-align: center;">20.9</td>
+                <td style="text-align: center;">30.0</td>
+                <td style="text-align: center;">31.4</td>
+                <td style="text-align: center;">-</td>
+              </tr>
+              <tr>
+                <td>EEMC</td>
+                <td style="text-align: center;">29.6</td>
+                <td style="text-align: center;">34.4</td>
+                <td style="text-align: center;">32.6</td>
+                <td style="text-align: center;">19.6</td>
+                <td style="text-align: center;">26.0</td>
+                <td style="text-align: center;">28.0</td>
+                <td style="text-align: center;">24.7</td>
+                <td style="text-align: center;">35.6</td>
+                <td style="text-align: center;">36.0</td>
+                <td style="text-align: center;">-</td>
+              </tr>
+              <tr>
+                <td>MUTR</td>
+                <td style="text-align: center;">32.3</td>
+                <td style="text-align: center;">35.4</td>
+                <td style="text-align: center;">33.3</td>
+                <td style="text-align: center;">28.4</td>
+                <td style="text-align: center;">29.8</td>
+                <td style="text-align: center;">26.5</td>
+                <td style="text-align: center;">22.8</td>
+                <td style="text-align: center;">41.6</td>
+                <td style="text-align: center;">40.5</td>
+                <td style="text-align: center;">-</td>
+              </tr>
+              <tr>
+                <td>LISA-7B</td>
+                <td style="text-align: center;">33.6</td>
+                <td style="text-align: center;">33.3</td>
+                <td style="text-align: center;">31.2</td>
+                <td style="text-align: center;">29.2</td>
+                <td style="text-align: center;">32.7</td>
+                <td style="text-align: center;">28.6</td>
+                <td style="text-align: center;">27.3</td>
+                <td style="text-align: center;">43.4</td>
+                <td style="text-align: center;">43.1</td>
+                <td style="text-align: center;">11.6</td>
+              </tr>
+              <tr>
+                <td>LISA-13B</td>
+                <td style="text-align: center;">36.1</td>
+                <td style="text-align: center;">36.4</td>
+                <td style="text-align: center;">32.1</td>
+                <td style="text-align: center;">30.4</td>
+                <td style="text-align: center;">35.7</td>
+                <td style="text-align: center;">31.6</td>
+                <td style="text-align: center;">30.2</td>
+                <td style="text-align: center;">46.7</td>
+                <td style="text-align: center;">45.7</td>
+                <td style="text-align: center;">16.5</td>
+              </tr>
+              <tr">
+                <td><strong>OISA (ours)</strong></td>
+                <td style="text-align: center;"><strong>41.1</strong></td>
+                <td style="text-align: center;"><strong>40.1</strong></td>
+                <td style="text-align: center;"><strong>38.5</strong></td>
+                <td style="text-align: center;"><strong>34.9</strong></td>
+                <td style="text-align: center;"><strong>38.5</strong></td>
+                <td style="text-align: center;"><strong>35.9</strong></td>
+                <td style="text-align: center;"><strong>35.2</strong></td>
+                <td style="text-align: center;"><strong>52.6</strong></td>
+                <td style="text-align: center;"><strong>53.0</strong></td>
+                <td style="text-align: center;"><strong>21.7</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="text-align:justify; font-size:0.95em; margin-top:0.5em;">
+            <b>Table 2:</b> Testing on OmniAVS dataset.
+            <b>Notes:</b> We use \(\mathcal{J}\&\mathcal{F}\) as the default metric. <i>All</i> is the average result across 8 splits. The splits represent different combinations of referring expression modalities: I) Text; II) Speech; III) Text with Sound; IV) Speech with Sound; V) Text with Image; VI) Speech with Image; VII) Text with Sound and Image; and VIII) Speech with Sound and Image.
+            
+          </div>
+        </div>
+
+        <p style="text-align:justify;">
+          As shown in Table 2, our OISA model significantly outperforms all baseline methods across all splits of the OmniAVS dataset. Compared to the strongest baseline, LISA-13B, our approach achieves a 5.0% improvement in the overall \(\mathcal{J}\&\mathcal{F}\) metric (41.1% vs. 36.1%) and a 5.2% improvement in the METEOR score (21.7% vs. 16.5%). The performance gains are consistent across all eight splits, demonstrating the effectiveness of our approach in handling diverse expression modalities and reasoning requirements. Notably, our model performs particularly well on splits VII and VIII, which contain the most challenging scenarios with complex reasoning and explanations.
+        </p>
+      </div>
+    </div>
+  
+  <div class="container is-max-desktop content">
+  <h3 class="title">Qualitative Results</h3>
+  <div class="container is-max-desktop">
+    <div class="content has-text-centered">
+      <div style="text-align:center; margin: 2em 0;">
+        <img src="static/images/qualitative.jpg" alt="Qualitative Results" width="95%" style="max-width:700px; border-radius: 0px;">
+        <div style="text-align:justify; font-size:0.95em; margin-top:0.5em;">
+          <b>Figure 3:</b> Qualitative results of our OISA model on the OmniAVS dataset. The model effectively handles various referring expression modalities and produces accurate segmentation masks with explanations. However, the model performs poorly in noisy environments, which is a direction for future work.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      Please consider to cite MOVE if it helps your research.
+      <pre><code>@inproceedings{ying2025omniavs,
+  title={{T}owards {O}mnimodal {E}xpressions and {R}easoning in {R}eferring {A}udio-{V}isual {S}egmentation, 
+  author={Kaining Ying and Henghui Ding and Guangquan Jie and Yu-Gang Jiang},
+  year={2025},
+  booktitle={ICCV}
+}</code></pre>
+    </div>
+  </section>
+
+
+  <a href="https://clustrmaps.com/site/1c3k5" title="ClustrMaps" target="_blank"><img
+      src="////www.clustrmaps.com/map_v2.png?d=ai6sNutd70XB2zjGa-jNQk3DQ2Tvb30dxYdRgTfr5K4&cl=ffffff" height="1" width="1"
+      / style="display:block;margin-top:5px;margin-bottom:0px;margin-left:auto;text-align:right"></a>
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              <center>
+                <font size=2>© FudanCVL | Last updated: 28/07/2025</font>
+              </center>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
