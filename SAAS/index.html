@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="author" href="https://henghuiding.github.io/">
+  <title>SAAS</title>
+  <meta name="description" content="Segment Anything Across Shots:A Method and Benchmark">
+  <meta name="keywords"
+    content="SAAS; Hengrui Hu; Kaining Ying; Henghui Ding; Fudan University; FudanCVL; Multi-shot Segmentation; Video Object Segmentation; Dataset">
+
+  <meta name="description"
+    content="Segment Anything Across Shots: A Method and Benchmark">
+  <meta property="og:title"
+    content="Segment Anything Across Shots: A Method and Benchmark" />
+  <meta property="og:description"
+    content="Segment Anything Across Shots: A Method and Benchmark" />
+
+  <meta name="twitter:title"
+    content="Segment Anything Across Shots: A Method and Benchmark">
+  <meta name="twitter:description"
+    content="Segment Anything Across Shots: A Method and Benchmark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <link rel="icon" type="image/x-icon" href="static/favicon_io/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="static/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="static/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <meta name="google-site-verification" content="RHqlM-yRssUYgbykhtd0uguPnqkhTvwJw-aLE04B4KQ" />
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(','\\)'], ['$', '$']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+  <style>
+    body {
+      min-width: 420px;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .image-pairs-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      justify-content: center;
+    }
+
+
+    .pair {
+      display: flex;
+      flex-direction: column;
+
+      flex-shrink: 0;
+
+      width: 175px;
+
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .pair h5 {
+      margin: 0 0 5px 0;
+      font-size: 18px;
+      text-align: center;
+      color: #333;
+      white-space: pre-wrap;
+    }
+
+    .pair img {
+      width: 200px;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 420px) {
+      .image-pairs-container {
+        overflow-x: auto;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title"> Segment Anything Across Shots:<br>A Method and Benchmark
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a target="_blank">Hengrui Hu</a>,&nbsp;</span>
+              <span class="author-block">
+                <a target="_blank">Kaining Ying</a>,&nbsp;</span>
+              <span class="author-block">
+                <a href="https://henghuiding.github.io/" target="_blank">Henghui Ding</a><sup>✉️</sup>,&nbsp;</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Fudan University, China
+            </div>
+
+            <div class="is-size-5 publication-authors">  
+              <span class="author-block">
+              <font color="#FF6403"><b>AAAI 2026</b></font></span>
+            </div>
+
+            <div class="is-size-6 publication-authors">
+              <span class="author-block">
+                <sup>✉️</sup> Corresponding author
+              </span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href=""  target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv (coming soon)</span>
+                  </a>
+                </span>
+
+
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span>💻Code (coming soon)</span>
+                  </a>
+
+                </span>
+
+                <span class="link-block">
+                  <a href=""
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span>📊Benchmark (coming soon)</span>
+                  </a>
+
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <center><img src="static/DemoImages/teaser.svg" border="0" width="100%"></center>
+
+        <div align="center">
+          <p style="text-align:justify; text-justify:inter-ideograph;width:100%">Figure 1. This work focuses on an underexplored task of <b>M</b>ulti-shot <b>V</b>ideo <b>O</b>bject <b>S</b>egmentation (<b>MVOS</b>).
+            As shown in (a), the significant variations in object appearance, spatial location, and background across shots pose major challenges in MVOS. 
+            We introduce <b>Cut-VOS</b>, a challenging MVOS benchmark with high transition diversity to support this task. 
+            As shown in (b), on Cut-VOS, SAM2-B+ exhibits a 21.4% 
+            \( \mathcal{J}\)&\( \mathcal{F}\)  drop compared to the challenging single-shot MOSE dataset and a 16.4% \( \mathcal{J}\)<sub>t</sub> drop compared to YouMVOS<sup>†</sup>. 
+            Upon the observation, we propose a new transition-specific segmentation model, <b>S</b>egment  <b>A</b>nything  <b>A</b>cross  <b>S</b>hots ( <b>  SAAS</b>) which effectively segments objects in multi-shot videos.
+          </p>
+        </div><br>
+      </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p style="text-align:justify; text-justify:inter-ideograph;">
+              This work focuses on multi-shot semi-supervised video object segmentation (MVOS), which aims at segmenting the target object indicated by an initial mask throughout a video with multiple shots. The existing VOS methods mainly focus on single-shot videos and struggle with shot discontinuities, thereby limiting their real-world applicability. We propose a transition mimicking data augmentation strategy (TMA) which enables cross-shot generalization with single-shot data to alleviate the severe annotated multi-shot data sparsity, and the Segment Anything Across Shots (SAAS) model, which can detect and comprehend shot transitions effectively. To support evaluation and future study in MVOS, we introduce Cut-VOS, a new MVOS benchmark with dense mask annotations, diverse object categories, and high-frequency transitions. Extensive experiments on YouMVOS and Cut-VOS demonstrate that the proposed SAAS achieves state-of-the-art performance by effectively mimicking, understanding, and segmenting across complex transitions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="Cut-VOS Benchmark">
+    <div class="container is-max-desktop content">
+      <h2 class="title">1. Cut-VOS Benchmark </h2>
+      <h3 class="title">Benchmark Statistics</h3>
+      
+      <div class="table-container" style="text-align:center;">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>Dataset</th>
+              <th>#Videos</th>
+              <th>#Objects</th>
+              <th>#Masks</th>
+              <th>#Shots</th>
+              <th>Trans. Frequency</th>
+              <th>Obj. Categories</th>
+              <th>Available</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>YouMVOS-test</td>
+              <td>30</td>
+              <td>78</td>
+              <td>64.6K</td>
+              <td>2.4K</td>
+              <td>0.222/s</td>
+              <td>4</td>
+              <td>✖</td>
+            </tr>
+            <tr>
+              <th>Cut-VOS (Ours)</th  >
+              <td>100</td>
+              <td>174</td>
+              <td>10.2K</td>
+              <td>648</td>
+              <td>0.346/s</td>
+              <td>11</td>
+              <td>✔</td>
+            </tr>
+          </tbody>
+        </table> 
+      <div style="text-align:justify; margin-top:0.5em;">
+      <p style="text-align:center;font-size:0.95em;"><b>Table 1</b>: The basic statistics for the Cut-VOS benchmark.</p>
+      </div>
+      </div>
+      
+       <div class="container is-max-desktop content">
+        <p style="text-align:justify;">
+      As shown in Table 1, the Cut-VOS benchmark contains 100 videos, 174 annotated objects, and 10.2K high-quality masks overall. Compared to the previous MVOS dataset YouMVOS, Cut-VOS contains more videos (100 vs. 30) and objects representing more diverse scenarios, and carefully screened, multiple types of transitions with a 1.6 times higher frequency reaching 0.352/s. Besides, different from YouMVOS which solely focus on actors especially human subjects, Cut-VOS contains 11 different categories and 40+ subcategories across both actors and static objects, making it more in-the-wild.
+       </p>
+      </div>
+
+      <h3 class="title">Diverse Object Categories</h3>
+
+      <center><img src="static/DemoImages/comp_Categories.svg" border="0" width="60%"></center>
+      <p style="text-align:center;font-size:0.95em;"><b>Figure 2</b>: 
+        The Comparison of object categories. Cut-VOS contains <br> 4 categories
+        in YouMVOS and 7 new categories.
+      </p>
+
+      As shown in Figure 2, the proposed Cut-VOS contains the objcet across 11 categories: <i>Adult</i>, <i>Child</i>, <i>Virtual</i>,
+      <i>Animal</i>, <i>Vehicle</i>, <i>Tool</i>, <i>Food</i>, <i>Architecture</i>, <i>Furniture</i>, <i>Plants</i>, and <i>Instrument</i>.
+      The first five categories correspond to actors, while the remaining six belong to static objects, accounting for 62% and 38% of the benchmark, respectively.
+        <br>
+
+      <div style="text-align:center; margin: 2em 0;">
+        <div class="image-pairs-container">
+          <div class="pair">
+            <h5><b>Adult</b></h5>
+            <img src="static/DemoImages/webp/adults.webp" alt="adults" height="200" />
+          </div>
+          <div class="pair">
+            <h5><b>Children</b></h5>
+            <img src="static/DemoImages/webp/children.webp" alt="children" width="232" height="174" />
+          </div>
+          <div class="pair">
+            <h5><b>Animal</b></h5>
+            <img src="static/DemoImages/webp/animal.webp" alt="animal" height="200" />
+          </div>
+          <div class="pair">
+            <h5><b>Vehicle</b></h5>
+            <img src="static/DemoImages/webp/vehicle.webp" alt="vehicle" height="200" />
+          </div>
+        </div>
+        <div class="image-pairs-container">
+          <div class="pair">
+            <h5><b>Tool</b></h5>
+            <img src="static/DemoImages/webp/tool.webp" alt="tool" height="200" />
+          </div>
+          <div class="pair">
+            <h5><b>Food</b></h5>
+            <img src="static/DemoImages/webp/food.webp" alt="food" height="200" />
+          </div>
+          <div class="pair">
+            <h5><b>Architecture</b></h5>
+            <img src="static/DemoImages/webp/architecture.webp" alt="architecture" height="200" />
+          </div>
+          <div class="pair">
+            <h5><b>Furniture</b></h5>
+            <img src="static/DemoImages/webp/furniture.webp" alt="furniture" height="200" />
+          </div>
+        </div>
+        <p style="text-align:center; font-size:0.95em; margin-top:15px;"><b>Figure 3</b>: Examples of diverse object categories in the Cut-VOS benchmark.</p>
+      </div>
+
+      <h3 class="title">Transition Types Analysis</h3>
+      
+      <div style="text-align:center; margin: 2em 0;">
+        <div class="image-pairs-container">
+          <div class="pair">
+            <h5><b>Cut away</b></h5>
+            <img src="static/DemoImages/webp/cutaway.webp" alt="cutaway" height="200" />
+          </div>
+          <div class="pair">
+            <h5><b>Cut in</b></h5>
+            <img src="static/DemoImages/webp/cutin.webp" alt="cutin" height="200" />
+          </div>
+          <div class="pair">
+            <h5><b>Delayed Cut in</b></h5>
+            <img src="static/DemoImages/webp/delayedcut.webp" alt="delayedcut" height="200" />
+          </div>
+          <div class="pair">
+            <h5><b>Scene Change</b></h5>
+            <img src="static/DemoImages/webp/scenechange.webp" alt="scenechange" height="200" />
+          </div>
+        </div>
+        <div class="image-pairs-container">
+          <div class="pair">
+            <h5><b>Pitch</b></h5>
+            <img src="static/DemoImages/webp/pitch.webp" alt="pitch" height="200" />
+          </div>
+          <div class="pair">
+            <h5><b>Horizon</b></h5>
+            <img src="static/DemoImages/webp/horizon.webp" alt="horizon" height="200" />
+          </div>
+          <div class="pair">
+            <h5><b>Close-up View</b></h5>
+            <img src="static/DemoImages/webp/closeup.webp" alt="closeup" height="200" />
+          </div>
+          <div class="pair">
+            <h5><b>Distant View</b></h5>
+            <img src="static/DemoImages/webp/distant.webp" alt="distant" height="200" />
+          </div>
+        </div>
+        <p style="text-align:center; font-size:0.95em; margin-top:15px;"><b>Figure 4</b>: Visualization of 8 significant transition types.</p>
+      </div>
+    We classify all the shot transitions into 9 diffrent types: <i>cut away</i>, <i>cut in</i>, <i>delayed cut in</i>, <i>scene change</i>, 
+    <i>pitch transformation</i>, <i>horizon transformation</i>, <i>close-up view</i>,  <i>distant view</i>, and <i>insignificancy</i>, as shown in Figure 4. 
+    We hope to pinpoint the existing bottlenecks by analyzing the transition types. We find that the <i>insignificancy</i> and <i>cut away</i> 
+    are the most easy for the existing VOS methods, while <i>scene change</i>, <i>close-up view</i>, and <i>distant view</i> are the most challenging.
+    The Cut-VOS benchmark contains more challenging types and few <i>insignificancy</i> and long duration <i>cut away</i> to keep complexity. <br><br>
+    The relevant analysis and statistics are involved in our paper and technical appendix. Clike <a href="">here</a> to access our paper on arXiv.
+    <br><br>
+
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <h2 class="title">2. TMA Strategy and SAAS Method</h2>
+      <div class="hero-body">
+        <center><img src="static/DemoImages/strategy.svg" border="0" width="77%"></center>
+        <div align="center">
+          <p style="text-align:justify; text-justify:inter-ideograph;width:80%;font-size:0.95em;"><b>Figure 5</b>: We first propose 
+            the <b>TMA</b> stategy to enable the training on single-shot videos. Such that the severe data sparsity is alleviated.
+            TMA automatically generates the samples with different patterns to mimick different transition types.
+            Examples: <b>(a)</b> Random strong transforms. <b>(b)</b> Single transition across diffrent segments from the same video.
+            <b>(c)</b> Multiple transitions, conducting a case with cut away and cut in. <b>(d)</b> Single transition to another video, 
+            with random replication and gradual translations.
+          </p>
+        </div>
+      </div>
+      <div class="hero-body">
+        <center><img src="static/DemoImages/network.svg" border="0" width="100%"></center>
+        <div align="center">
+          <p style="text-align:justify; text-justify:inter-ideograph;width:100%;font-size:0.95em;"><b>Figure 6</b>: The architecture of 
+            our proposed <b>SAAS</b> (Segment Anything Across Shots) model. It consists of three new compenents:
+            Transition Detection Module (TDM), Transition Comprehension Module (TCH), and local memory bank. These moduels 
+            detect and understand the occurring transition and guide the cross-shot segmentation. With the training support 
+            of TMA, SAAS achieves strong multi-shot segmentation capacity.
+          </p>
+        </div>
+      </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <h2 class="title">3. Experiments</h2>
+      <h3 class="title">Benchmark Results</h3>
+        <div class="hero-body">
+        <center><img src="static/DemoImages/main_results.svg" border="0" width="100%"></center>
+          <div align="center">
+            <p style="text-align:center;font-size:0.95em;"><b>Table 2</b>: Main results on existing Cut-VOS
+              methods and our proposed SAAS on YouMVOS and Cut-VOS benchmarks.
+            </p>
+          </div>
+        </div>
+
+      We evaluate the representative VOS methods, including Xmem, DEVA, Cutie, and SAM2, along with our proposed
+      SAAS on both YouMVOS and Cut-VOS benchmarks, as shown in Table 2. <sup>*</sup> denotes the model is directly trained 
+      on the YTVOS dataset without extra data augmentation. Bold and underlined indicate the best and 
+      the second-best performance in the tested methods. The Results show that SAAS achieves the SOTA performance
+      on both benchmarks while keeping virtually no degradation in inference speed.
+
+      <h3 class="title">Qualitative Results</h3>
+        <div class="table-container">
+          <center>
+            <img src="static/DemoImages/qualitative.svg" width="100%" />
+            <p style="text-align:justify; text-justify:inter-ideograph;font-size:0.95em;;"><b>Figure 7</b>. Qualitative comparison of some representative cases from <b>Cut-VOS</b> between the
+              SAAS and the SAM2 methods. (a) shows a case with a delayed cut in transition and an abrupt position shift of target objects. 
+              (b) demonstrates SAAS's better capacity in a crowded scene with complex relations. 
+              SAAS coherently segments the target object among ten similar objects. 
+            </p>
+          </center>
+        </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      Please consider to cite SAAS if it helps your research.
+      <pre><code>@inproceedings{SAAS2025,
+  title={Segment Anything Across Shots: A Method and Benchmark},
+  author={Hu, Hengrui and Ying, Kaining and Ding, Henghui},
+  booktitle={AAAI},
+  year={2026}
+}</code></pre>
+    </div>
+  </section>
+
+
+
+  <a href="https://clustrmaps.com/site/1c7ch" title="ClustrMaps" target="_blank"><img
+    src="//www.clustrmaps.com/map_v2.png?d=A4O8vj6nHKr-wzDSok1gt01FP_r9dc5COhnY6v-ztGY&cl=ffffff" height="1" width="1"
+    / style="display:block;margin-top:5px;margin-bottom:0px;margin-left:auto;text-align:right"></a>
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              <center>
+                <font size=2>© FudanCVL | Last updated: 16/11/2025</font>
+              </center>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
