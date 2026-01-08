@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*******************************************************************************
  * Variables used throughout the theme.
  * To adjust anything, simply edit the variables below and rebuild the theme.
@@ -850,5 +851,22 @@ d-appendix a:hover, d-appendix a.footnote-backlink:hover {
     grid-column: none;
   }
 }
+img.logo-light {
+  display: inline-block !important;
+}
+
+img.logo-dark {
+  display: none !important;
+}
+
+html[data-theme=dark] img.logo-light {
+  display: none !important;
+}
+
+html[data-theme=dark] img.logo-dark {
+  display: inline-block !important;
+}
+
+/* 下面 dark class / prefers-color-scheme 同理加 img 前缀即可 */
 
 /*# sourceMappingURL=main.css.map */
